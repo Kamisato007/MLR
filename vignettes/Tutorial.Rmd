@@ -1,0 +1,40 @@
+---
+title: "Tutorial"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Tutorial}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(MLR)
+```
+
+This package allows you to get some Important values in the multiple linear
+Regression model.
+\
+
+R has its built-in function to generate this:
+```{r}
+linear_regression = lm(hp~mpg+wt,data = mtcars)
+tab = summary(linear_regression)
+tab
+```
+
+We can use our packages to generate these values. For example, for the 
+coefficient part:
+```{r}
+X = unname(model.matrix(hp~mpg+wt,data = mtcars))
+y = mtcars$hp
+cbind(get_beta(X,y),get_Std(X,y),get_tvalue(X,y),get_pvalue(X,y))
+```
+
+The value is exactly the same.
