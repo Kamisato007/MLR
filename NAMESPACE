@@ -1,2 +1,3 @@
 importFrom("stats", "pt", "qt")
+importFrom("stats", "pf")
 exportPattern("^[[:alpha:]]+")
