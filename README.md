@@ -6,6 +6,8 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/Kamisato007/MLR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Kamisato007/MLR/actions/workflows/R-CMD-check.yaml)
+[![Codecov test
+coverage](https://codecov.io/gh/Kamisato007/MLR/branch/main/graph/badge.svg)](https://app.codecov.io/gh/Kamisato007/MLR?branch=main)
 <!-- badges: end -->
 
 The goal of MLR is to …
