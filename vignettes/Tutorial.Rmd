@@ -20,8 +20,11 @@ library(MLR)
 
 This package allows you to get some Important values in the multiple linear
 Regression model.
+\
+There are two main functions and many small functions. They're closely related
+to each other.
 
-## Function 
+## I. Function 
 
 ### 1.Summary Table coefficient values
 
@@ -54,5 +57,38 @@ We can compare it to ANOVA table that build-in function generates:
 anova(linear_regression)
 ```
 The value is exactly the same.
+
+## II. Correctness
+
+Here we test 2 functions: get_coef_table and get_anova
+```{r}
+ano_table = anova(linear_regression)
+
+all.equal(unname(tab$coefficients),get_coef_table(X,y))
+all.equal(unname(as.matrix(ano_table)),get_anova(X,y))
+
+```
+
+
+## III. Efficiency
+Here we also test 2 functions: get_coef_table and get_anova
+
+```{r}
+bench::mark(unname(summary(lm(hp~mpg+wt,data = mtcars))$coefficients),
+      get_coef_table(unname(model.matrix(hp~mpg+wt,data = mtcars)),mtcars$hp))
+
+
+bench::mark(unname(as.matrix(anova(lm(hp~mpg+wt,data = mtcars)))),
+            get_anova(unname(model.matrix(hp~mpg+wt,data = mtcars)),mtcars$hp))
+```
+
+We can find that the first function I build generating values for coefficient
+summary table is slightly faster than the build-in function.
+\
+Surprisingly, the second function I build generating anova table values is
+significantly faster than the build-in function.
+
+
+
 
 
