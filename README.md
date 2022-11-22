@@ -63,5 +63,4 @@ You can use the following code to show the vignette.
 
 ``` r
 browseVignettes("MLR")
-#> 没有找到小文品browseVignettes("MLR")
 ```

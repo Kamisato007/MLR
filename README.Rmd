@@ -73,7 +73,7 @@ library(MLR)
 
 You can use the following code to show the vignette.
 
-```{r}
+```{r,warning=FALSE}
 browseVignettes("MLR")
 ```
 
