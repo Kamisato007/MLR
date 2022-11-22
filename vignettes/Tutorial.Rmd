@@ -24,6 +24,11 @@ Regression model.
 \
 There are two main functions and many small functions. They're closely related
 to each other.
+\
+\
+About the data set: we use build-in data test our data. Here we show the example
+of `mtcars` data. In the test cases, `iris` data is also used to test our 
+function.
 
 ## I. Function 
 
@@ -58,6 +63,27 @@ We can compare it to ANOVA table that build-in function generates:
 anova(linear_regression)
 ```
 The value is exactly the same.
+
+### 3. Small Functions
+
+Recall the output of the summary table:
+```{r}
+tab
+```
+
+
+This package can also generate the values of Multiple R-squared, 
+Adjusted R-squared, Residual standard error and F-statistic. 
+\
+(Note: degrees of freedom of Residual 
+standard error is the same as F-statistic df)
+```{r}
+sqrt(get_MSE(X,y))
+get_Rsquare(X,y)
+get_Radj(X,y)
+get_F(X,y)
+```
+
 
 ## II. Correctness
 
