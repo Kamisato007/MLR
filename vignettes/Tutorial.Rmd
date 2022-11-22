@@ -20,7 +20,10 @@ library(MLR)
 
 This package allows you to get some Important values in the multiple linear
 Regression model.
-\
+
+## Function 
+
+### 1.Summary Table coefficient values
 
 R has its built-in function to generate this:
 ```{r}
@@ -34,7 +37,22 @@ coefficient part:
 ```{r}
 X = unname(model.matrix(hp~mpg+wt,data = mtcars))
 y = mtcars$hp
-cbind(get_beta(X,y),get_Std(X,y),get_tvalue(X,y),get_pvalue(X,y))
+get_coef_table(X,y)
 ```
 
 The value is exactly the same.
+
+
+### 2.ANOVA
+
+And we can generate an ANOVA table:
+```{r}
+get_anova(X,y)
+```
+We can compare it to ANOVA table that build-in function generates:
+```{r}
+anova(linear_regression)
+```
+The value is exactly the same.
+
+
