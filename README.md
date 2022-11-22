@@ -19,7 +19,7 @@ You can install the development version of MLR from
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("Kamisato007/MLR")
+devtools::install_github("Kamisato007/MLR", build_vignettes = T)
 ```
 
 ## Example
@@ -35,5 +35,5 @@ You can use the following code to show the vignette.
 
 ``` r
 browseVignettes("MLR")
-#> 没有找到小文品browseVignettes("MLR")
+#> 打开httpd帮助服务器… 好了
 ```
